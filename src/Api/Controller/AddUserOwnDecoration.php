@@ -27,7 +27,7 @@ class AddUserOwnDecoration extends AbstractCreateController
     protected function data(Request $request, Document $document)
     {
         $actor = RequestUtil::getActor($request);
-        $actor->assertCan('offer_decoration');
+        $actor->assertCan('user.offer_decoration');
         
         $attributes = Arr::get($request->getParsedBody(), 'attributes', []);
         $newModel = new UserOwnDecoration();

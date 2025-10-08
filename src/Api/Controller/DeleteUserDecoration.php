@@ -31,7 +31,7 @@ class DeleteUserDecoration extends AbstractDeleteController
         $actor = RequestUtil::getActor($request);
         $id = Arr::get($request->getQueryParams(), 'id');
         $model = UserDecoration::findOrFail($id);
-        $actor->assertCan("create_decoration");
+        $actor->assertCan("user.create_decoration");
         $model->delete();
     }
 }

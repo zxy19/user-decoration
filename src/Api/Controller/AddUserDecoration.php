@@ -26,7 +26,7 @@ class AddUserDecoration extends AbstractShowController
     protected function data(Request $request, Document $document)
     {
         $actor = RequestUtil::getActor($request);
-        $actor->assertCan('create_decoration');
+        $actor->assertCan('user.create_decoration');
         $attributes = Arr::get($request->getParsedBody(), 'attributes', []);
         if (Arr::get($attributes, 'id')) {
             $newModel = UserDecoration::findOrFail(Arr::get($attributes, 'id'));
